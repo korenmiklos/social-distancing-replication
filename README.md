@@ -1,79 +1,41 @@
 # Template README and Guidance
 
-> INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see [Endorsers](Endorsers.md). It is available as [Markdown/txt](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md), [Word](templates/README.docx), [LaTeX](templates/README.tex), and [PDF](templates/README.pdf). In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with `> INSTRUCTIONS`). Please ensure that a PDF is submitted in addition to the chosen native format. 
-
 Data Availability Statements
 ----------------------------
 
-> INSTRUCTIONS: Every README should contain a description of the location and accessibility of the data used in the article. These descriptions are generally referred to as "Data Availability Statements" (DAS). This should include ALL data, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope. For instance, if using deflators, the source of the deflators (e.g. at the national statistical office) should also be listed here. DAS can be complex and varied. Examples are provided [here](Requested_information_dcas.md), and below.
-
-> INSTRUCTIONS: If providing a datafile per data source, list them here; if providing combined/derived datafiles, list them separately after the DAS.
-
-> INSTRUCTIONS: DAS do not replace Data Citations (see [Guidance](Data_citation_guidance.md)). Rather, they augment them. Depending on journal requirements and to some extent stylistic considerations, data citations should appear in the main article, in an appendix, or in the README. However, data citations only provide information **where** to find the data, not **how to access** that data. Thus, DAS augment data citations by going into additional detail that allow a researcher to assess cost, complexity, and availability over time of the data used by the original author.
-
-### Example for public use data
-> The [DATA TYPE] data used to support the findings of this study have been deposited in the [NAME] repository ([DOI or OTHER PERSISTENT IDENTIFIER]). [[1](https://www.hindawi.com/research.data/#statement.templates)]
-
-### Example for public use data with required registration:
-> The paper uses IPUMS Terra data (Ruggles et al, 2018). IPUMS-Terra does not allow for redistribution, except for the purpose of replication archives. Permissions as per https://terra.ipums.org/citation have been obtained, and are documented within the "data/IPUMS-terra" folder.
->> Note: the reference to "Ruggles et al, 2018" would be resolved in the Reference section of this README, **and** in the main manuscript.
-
 Datafile: `data/raw/ipums_terra_2018.dta`
 
-### Example for confidential data: 
-> INSTRUCTIONS: Citing and describing confidential data, in particular when it does not have a regular distribution channel or online landing page, can be tricky. A citation can be crafted ([see guidance](FAQ.html#data-citation-without-online-link)), and the DAS should describe how to access, whom to contact (including the role of the particular person, should that person retire), and other relevant information, such as required citizenship status or cost.
+### SafeGraph data 
+> The mobility data used in this paper (SafeGraph, 2020) is confidential, but may be obtained free of charge for Covid-19-related research from the COVID-19 Consortium. Researchers interested in access to the data can apply at https://www.safegraph.com/covid-19-data-consortium. After signing a Data Agreement, access is granted within a few days. The authors will assist with any reasonable replication attempts for two years following publication.
+> 
+> Datafiles used: `2020/02/patterns-part[1-4].csv.gz` (data for February 2020, released May 7, 2020) and `2020/05/patterns-part[1-4].csv.gz` (data for February 2020, released June 5, 2020).
 
-> The data for this project (DESE, 2019) are confidential, but may be obtained with Data Use Agreements with the Massachusetts Department of Elementary and Secondary Education (DESE). Researchers interested in access to the data may contact [NAME] at [EMAIL], also see www.doe.mass.edu/research/contact.html. It can take some months to negotiate data use agreements and gain access to the data. The author will assist with any reasonable replication attempts for two years following publication.
-
-### Example for confidential Census Bureau data
-> All the results in the paper use confidential microdata from the U.S. Census Bureau. To gain access to the Census microdata, follow the directions here on how to write a proposal for access to the data via a Federal Statistical Research Data Center: https://www.census.gov/ces/rdcresearch/howtoapply.html. 
-You must request the following datasets in your proposal:
->1. Longitudinal Business Database (LBD), 2002 and 2007
->2. Foreign Trade Database – Import (IMP), 2002 and 2007
-[...]
-
-(adapted from [Fort (2016)](https://doi.org/10.1093/restud/rdw057))
-
-### Example for preliminary code during the editorial process
-> Code for data cleaning and analysis is provided as part of the replication package. It is available at https://dropbox.com/link/to/code/XYZ123ABC for review. It will be uploaded to the [JOURNAL REPOSITORY] once the paper has been conditionally accepted.
+> The code and all other data underlying our analysis are licensed for public use and are available on Zenodo (XXXX). 
 
 Dataset list
 ------------
-> INSTRUCTIONS: In some cases, authors will provide one dataset (file) per data source, and the code to combine them. In others, in particular when data access might be restrictive, the replication package may only include derived/analysis data. Every file should be described. This can be provided as a Excel/CSV table, or in the table below.
 
 | Data file | Source | Notes    |Provided |
 |-----------|--------|----------|---------|
-| `data/raw/lbd.dta` | LBD | Confidential | No |
-| `data/raw/terra.dta` | IPUMS Terra | As per terms of use | Yes |
-| `data/derived/regression_input.dta`| All listed | Combines multiple data sources, serves as input for Table 2, 3 and Figure 5. | Yes |
+| `data/raw/bls/industry-employment/ces.txt` | BLS Current Employment Statistics | Public domain | Yes |
+| `data/raw/bls/atus/*.dat` | BLS Time Use Survey | Public domain | Yes |
+| `data/raw/bls/employment-matrix/matrix.xlsx` | BLS National Employment Matrix | Public domain | Yes |
+| `data/raw/bls/crosswalk/matrix.xlsx` | ONET-SOC to Occupational Outlook Handbook Crosswalk | Public domain | Yes |
+| `data/raw/onet/*.csv` | ONET Online | Creative Commons 4.0 | Yes |
+| `data/raw/census/cbp/*.txt` | County Business Patterns | Public domain | Yes |
+| `not-included/safegraph/*.csv`| SafeGraph | Available with Data Agreement with SafeGraph | No |
+| `data/derived/visit/visit-change.dta`| SafeGraph | Aggregated to 3-digit NAICS industries | Yes |
 
 
 Computational requirements
 ---------------------------
 
-> INSTRUCTIONS: In general, the specific computer code used to generate the results in the article will be within the repository that also contains this README. However, other computational requirements - shared libraries or code packages, required software, specific computing hardware - may be important, and is always useful, for the goal of replication. Some example text follows. 
-
-> INSTRUCTIONS: We strongly suggest providing setup scripts that install/set up the environment. Sample scripts for [Stata](https://github.com/gslab-econ/template/blob/master/config/config_stata.do),  [R](https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/global-libraries.R), and [Python](https://pip.readthedocs.io/en/1.1/requirements.html) are easy to set up and implement.
-
 ### Software Requirements
-- Stata (code was last run with version 15)
-  - `estout` (as of 2018-05-12)
-  - `rdrobust` (as of 2019-01-05)
-  - the program "`0_setup.do`" will install all dependencies locally, and should be run once.
-- Python 3.6.4
-  - `pandas` 0.24.2
-  - `numpy` 1.16.4
-  - the file "`requirements.txt`" lists these dependencies, please run "`pip install -r requirements.txt`" as the first step. See [https://pip.readthedocs.io/en/1.1/requirements.html](https://pip.readthedocs.io/en/1.1/requirements.html) for further instructions on using the "`requirements.txt`" file.
-- Intel Fortran Compiler version 20200104
-- Matlab (code was run with Matlab Release 2018a)
-- R 3.4.3
-  - `tidyr` (0.8.3)
-  - `rdrobust` (0.99.4)
-  - the file "`0_setup.R`" will install all dependencies (latest version), and should be run once prior to running other programs.
+- Stata (code was last run with version 16)
+  - `estout` (from http://www.stata-journal.com/software/sj14-2/)
+  - running `make install` from the root of the folder will install `estout` locally, and should be run once.
 
-Portions of the code use bash scripting, which may require Linux.
-
-Portions of the code use Powershell scripting, which may require Windows 10 or higher.
+Portions of the code use bash scripting (`make`, `wget`), which may require Linux or Mac OS X.
 
 ### Description of programs
 > INSTRUCTIONS: Give a high-level overview of the program files and their purpose. Remove redundant/ obsolete files from the Replication archive.
