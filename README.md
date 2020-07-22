@@ -3,12 +3,10 @@
 Data Availability Statements
 ----------------------------
 
-Datafile: `data/raw/ipums_terra_2018.dta`
-
 ### SafeGraph data 
-> The mobility data used in this paper (SafeGraph, 2020) is confidential, but may be obtained free of charge for Covid-19-related research from the COVID-19 Consortium. Researchers interested in access to the data can apply at https://www.safegraph.com/covid-19-data-consortium. After signing a Data Agreement, access is granted within a few days. The authors will assist with any reasonable replication attempts for two years following publication.
+> The mobility data used in this paper (SafeGraph, 2020) is proprietary, but may be obtained free of charge for Covid-19-related research from the COVID-19 Consortium. Researchers interested in access to the data can apply at https://www.safegraph.com/covid-19-data-consortium. After signing a Data Agreement, access is granted within a few days. The authors will assist with any reasonable replication attempts for two years following publication.
 > 
-> Datafiles used: `2020/02/patterns-part[1-4].csv.gz` (data for February 2020, released May 7, 2020) and `2020/05/patterns-part[1-4].csv.gz` (data for February 2020, released June 5, 2020).
+> Datafiles used: `s3://sg-c19-response/monthly-patterns/patterns_backfill/2020/05/07/12/2020/02/patterns-part[1-4].csv.gz` (data for February 2020, released May 7, 2020) and `s3://sg-c19-response/monthly-patterns/patterns/2020/06/05/06/patterns-part[1-4].csv.gz` (data for February 2020, released June 5, 2020).
 
 > The code and all other data underlying our analysis are licensed for public use and are available on Zenodo (XXXX). 
 
